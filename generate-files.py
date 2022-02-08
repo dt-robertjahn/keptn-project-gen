@@ -31,9 +31,9 @@ def createFiles():
 
     # remove if it exists and then create the project folder
     debugMessage("DEBUG - createFiles(): deleting " + projectpath)
-    shutil.rmtree("projectpath", ignore_errors=True)
+    shutil.rmtree(projectpath)
     os.makedirs(projectpath, exist_ok=True)
-
+    
     # now make the project files
     genShipyard(projectpath)
     genDynatraceConfig(projectpath)
