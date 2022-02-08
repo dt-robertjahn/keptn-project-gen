@@ -4,7 +4,6 @@ This is a helper script to generate project files to help in testing and demos. 
 
 This script is limited to one stage, one sequence and 5 sequence tasks.  
 
-
 # Generate project files
 
 After running the `generate-files.py` python script, a set of files will be added to a `gen/project` subfolder.  
@@ -59,6 +58,12 @@ python generate-files.py \
     --task3 updateJira
 ```
 
+## Generated file notes
+
+* `shipyard.yaml` - if the `evaluation` task was specified, the `evaluation` task properties is set to `timeframe: "5m"`
+* `dynatrace.conf.yaml` - set to dashboard `query` with default built in keptn tags and variables. See [dynatrace-service Docs](https://github.com/keptn-contrib/dynatrace-service/blob/master/documentation/dynatrace-conf-yaml-file.md#attach-rules-for-connecting-dynatrace-entities-with-events-attachrules) for more details and options
+* `task.finished.json` - JSON has placeholders for `shkeptncontext` and `triggeredid`.  JSON also generates an attribute with a dummy attribute to send back data to the sequence.
+
 # Use project files
 
 The `generate-files.py` script generates files put into the `gen/project` subfolder and it shows some command you can cut-n-paste as shown in the example below:
@@ -89,10 +94,9 @@ The `create-project.py` will automate the calls using these keptn CLI commands:
 
 ## Usage
 
-1. Before you run `create-project.py`, review and adjust the generated files for your needs.
-    * For example the [dynatrace.conf.yaml](https://github.com/keptn-contrib/dynatrace-service/blob/master/documentation/dynatrace-conf-yaml-file.md#attach-rules-for-connecting-dynatrace-entities-with-events-attachrules) file.
-1. Copy and paste the commands in the output from the `generate-files.py` script. 
-1. Setup your project with an [upstream repo](https://keptn.sh/docs/0.12.x/manage/git_upstream/).  Below is Keptn CLI example:
+1. Before you run `create-project.py`, review and adjust the generated files for your needs
+1. Adjust and run the commands from the output from the `generate-files.py` script
+1. Setup your project with an [upstream repo](https://keptn.sh/docs/0.12.x/manage/git_upstream/).  Below is the Keptn CLI syntax for github:
     ```
     keptn update project jira-demo \
         --git-remote-url=https://github.com/[MY ORG]/[MY REPO].git \
