@@ -35,12 +35,12 @@ Example prompts:
 Enter project name     : jira-demo
 Enter service name     : tnt-demo-svc 
 Enter stage name       : production
-Enter sequence name    : problem-notification
-You will now be prompted in a loop for 'problem-notification' sequence tasks names
+Enter sequence name    : problemNotification
+You will now be prompted in a loop for 'problemNotification' sequence tasks names
 Enter 'q' to exit loop
-Enter task #    1 name : create-jira
+Enter task #    1 name : createJira
 Enter task #    2 name : evaluation
-Enter task #    3 name : update-jira
+Enter task #    3 name : updateJira
 Enter task #    4 name : q
 ```
 
@@ -53,10 +53,10 @@ python generate-files.py \
     --project jira-demo \
     --service tnt-demo-svc \
     --stage production \
-    --sequence problem-notification \
-    --task1 create-jira \
+    --sequence problemNotification \
+    --task1 createJira \
     --task2 evaluation \
-    --task3 update-jira
+    --task3 updateJira
 ```
 
 # Use project files
@@ -73,7 +73,7 @@ The `generate-files.py` script generates files put into the `gen/project` subfol
         --dtconf gen/jira-demo/dynatrace.conf.yaml
 
     Run this command to trigger your sequence
-    keptn send event --file gen/jira-demo/production.problem-notification.triggered.json
+    keptn send event --file gen/jira-demo/production.problemNotification.triggered.json
     ```
 
 The `create-project.py` will automate the calls using these keptn CLI commands:
