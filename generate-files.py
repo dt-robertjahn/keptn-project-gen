@@ -31,7 +31,7 @@ def createFiles():
 
     # remove if it exists and then create the project folder
     debugMessage("DEBUG - createFiles(): deleting " + projectpath)
-    shutil.rmtree(projectpath)
+    shutil.rmtree(projectpath,ignore_errors=True)
     os.makedirs(projectpath, exist_ok=True)
     
     # now make the project files
@@ -165,7 +165,7 @@ def gatherInputs():
     global sequence
     global tasks
     project=click.prompt("Enter project name     ", type=str) # default=""
-    service=click.pr3ompt("Enter service name     ", type=str)
+    service=click.prompt("Enter service name     ", type=str)
     stage=click.prompt("Enter stage name       ", type=str)
     sequence=click.prompt("Enter sequence name    ", type=str)
     # limit to 5 tasks for if blank entered than exit
